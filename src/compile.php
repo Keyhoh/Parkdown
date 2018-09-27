@@ -10,7 +10,7 @@
  * 出力先ディレクトリがなければ作る
  * @param $paths
  */
-function makeDir($paths)
+function make_dir($paths)
 {
     if (count($paths) > 0) {
         $dir = implode("/", $paths);
@@ -20,23 +20,23 @@ function makeDir($paths)
 
 /**
  * テンプレートにデータを渡してテキストファイルを作成する。
- * @param $targetResource
- * @param $outputName
+ * @param $target_resource
+ * @param $output_name
  */
-function outputFile($targetResource, $outputName)
+function output_file($target_resource, $output_name)
 {
     ob_start();
-    $contents = json_decode(file_get_contents($targetResource), true)["contents"];
+    $contents = json_decode(file_get_contents($target_resource), true)["contents"];
 
     include("../resources/template/template.php");
 
-    $fullFileName = "../build/" . $outputName;
-    $paths = explode("/", $fullFileName);
+    $full_file_name = "../build/" . $output_name;
+    $paths = explode("/", $full_file_name);
     array_pop($paths);
-    makeDir($paths);
-    file_put_contents($fullFileName, ob_get_contents());
+    make_dir($paths);
+    file_put_contents($full_file_name, ob_get_contents());
 
     ob_end_clean();
 }
 
-outputFile("../resources/data/data.json", "test.md");
+output_file("../resources/data/data.json", "test.md");

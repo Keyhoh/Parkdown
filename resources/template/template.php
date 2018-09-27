@@ -3,6 +3,21 @@
 ## Markdown
 
 ### table
+Percentage :
+<?php
+class ResultSum
+{
+    static $sum;
+
+    static function summary($content){
+        self::$sum += $content["result"] ? 1 : 0;
+    }
+}
+
+array_walk($contents, "ResultSum::summary");
+echo ResultSum::$sum . "/" . count($contents) . "\n";
+?>
+
 |index | key | value | result |
 |:---|:---|:---| :---: |
 <?php
@@ -15,5 +30,5 @@
 
 foreach ($contents as $index => $content) {
     $result = $content["result"] ? "○" : "×";
-    echo "|No." . ($index + 1) . "|" . $content["key"] . "|" . $content["value"] . "|" . $result . "\n";
+    echo "|No." . ($index + 1) . "|" . $content["key"] . "|" . $content["value"] . "|" . $result . "|\n";
 }
