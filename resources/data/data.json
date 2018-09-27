@@ -1,0 +1,34 @@
+{
+  "contents": [
+    {
+      "key": "key1",
+      "value": "value1",
+      "result":true
+    },
+    {
+      "key": "key2",
+      "value": "value2",
+      "result":true
+    },
+    {
+      "key": "key3",
+      "value": "value3",
+      "result":true
+    },
+    {
+      "key": "key4",
+      "value": "value4",
+      "result":false
+    },
+    {
+      "key": "key5",
+      "value": "value5",
+      "result":true
+    },
+    {
+      "key": "key6",
+      "value": "value6",
+      "result":false
+    }
+  ]
+}
